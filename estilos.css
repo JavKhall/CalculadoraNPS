@@ -1,0 +1,172 @@
+:root {
+	--color-banner: #212f3d;
+	--letras-banner: #d0d3d4;
+}
+
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+body {
+	width: 100%;
+	height: 100vh;
+	justify-content: center;
+	align-content: center;
+	background-color: #d4e6f1;
+}
+
+.contenedor {
+	height: 100%;
+}
+
+/* CONFIURACION GENERAL DE LA TARJETA */
+.contenedor-tarjeta {
+	display: flex;
+	height: 90%;
+	justify-content: center;
+	align-items: center;
+}
+
+.tarjeta {
+	display: flex;
+	width: 340px;
+	height: 500px;
+	perspective: 2000px;
+}
+
+.contenido-tarjeta {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+	justify-content: center;
+	transition: all 1s ease;
+	transform-style: preserve-3d;
+	/* transform: rotateY(180deg); */
+
+}
+
+.cara-frontal, .cara-trasera {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+	backface-visibility: hidden;
+	overflow: hidden;
+}
+
+.cara-frontal {
+	justify-content: center;
+	color:white;
+	background: rgb(40,39,70);
+	background: linear-gradient(220deg, rgba(40,39,70,1) 0%, rgba(98,118,247,1) 100%);
+}
+
+/* CONFIGURACION DE LOS BANNER DE LAS TARJETAS */
+.banner {
+	display: flex;
+	height: 60px;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--color-banner);
+	
+}
+
+.contenedor-banner {
+	display: flex;
+	margin: auto;
+}
+
+.texto-banner {
+	color: var(--letras-banner); 
+	margin: auto 10px;
+} 
+
+.icono-banner {
+	color: var(--letras-banner);
+	margin: auto; 
+	font-size: 25px;
+}
+
+/* CONFIGURACION FORMULARIO FRONTAL */
+.centro-tarjeta {
+	height: 380px;
+	width: 90%;
+	margin: auto;
+	padding: 40px 10px;
+}
+
+.boton-frontal {
+	height: 50px;
+	width: 300px;
+	background-color: var(--color-banner);
+	color:var(--letras-banner);
+	border: none;
+}
+
+/* CONFIGURACION PARTICULAR DEL ICONO DEL BOTON FRONTAL */
+.icono-alterno {
+	font-size: 35px;
+}
+
+/* CONFIGURACION GENERAL DE LA CARA TRASERA */
+.cara-trasera {
+	transform: rotateY(180deg);
+	justify-content: center;
+}
+
+.valor-nps {
+	display: flex;
+	flex-direction: column;
+	/* border: solid 1px black; */
+	border-radius: 10px;
+	box-shadow: 2px 2px 4px rgba(0,0,0,.4);
+	height: 180px;
+	width: 200px;
+	justify-content: center;
+	align-content: center;
+	/* background-color: var(--color-banner); */
+	color: var(--letras-banner);
+}
+
+.nps-porcentaje {
+	margin: 5px auto;
+	font-size: 80px;
+}
+
+.nps-cumplimiento {
+	font-size: 24px;
+	margin: 3px auto;
+}
+
+.margenes {
+	width: 260px;
+
+	margin-top: 25px;
+	text-align: center;
+	color: var(--letras-banner);
+}
+
+.cantidad {
+	font-size: 25px;
+	text-shadow: 2px 2px 4px rgba(0,0,0,.4);
+}
+
+/* CONFIGURACION DEL GIRO DE LA TARJETA, FALTARIA AGREGAR MODIFICACIONES CON EL COLOR */
+.giro {
+	transition: all 1s ease;
+	transform-style: preserve-3d;
+	transform: rotateY(180deg);
+}
+
+.en-objetivo {
+	background: rgb(40, 70, 39);
+	background: linear-gradient(220deg, rgb(40, 70, 39, 1) 0%, rgb(115, 247, 98, 1) 100%);
+}
+
+.fuera-de-objetivo {
+	background: rgb(70, 39, 39);
+	background: linear-gradient(220deg, rgb(70, 39, 39, 1) 0%, rgb(247, 98, 98, 1) 100%);
+}

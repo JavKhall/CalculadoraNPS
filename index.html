@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="favicon.png">
+	<title>Calculadora NPS</title>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+	<link rel="stylesheet" href="./estilos.css">
+</head>
+
+<body>
+	<main class="contenedor ">
+
+	<!-- CONENEDOR DE LA TARJETA -->
+	<div class="container contenedor-tarjeta">
+		
+		<!-- TARJETA -->
+		<div class="row tarjeta">
+			
+			<!-- CONTENIDO DE LA TARJETA -->
+			<div class="contenido-tarjeta" id="contenido-tarjeta">
+
+				<!-- CARA FROTAL DE LA TARJETA -->
+				<div class="cara-frontal">
+					<div class="banner">
+						<div class="contenedor-banner">
+							<ion-icon name="calculator" class="icono-banner"></ion-icon>
+						<p class="texto-banner">Calculadora NPS</p>
+						</div>
+					</div>
+					
+					<!-- DATOS -->
+					<form>
+					<div class="centro-tarjeta">
+						<!-- PROMOTORES -->
+						<div class="row mb-4 mt-2 d-flex justify-content-center">
+							<label for="promotor" class="col-7 col-form-label texto">Promotores</label>
+							<div class="col-3">
+								<input type="number" name="promotor" class="form-control text-center" id="promotor">
+							</div>
+						</div>
+
+						<!-- NEUTROS -->
+						<div class="row mb-4 d-flex justify-content-center">
+							<label for="neutro" class="col-7 col-form-label texto">Neutros</label>
+							<div class="col-3">
+								<input type="number" name="neutro" class="form-control text-center" id="neutro">
+							</div>
+						</div> 
+
+						<!-- DETRACTORES -->
+						<div class="row mb-4 d-flex justify-content-center">
+							<label for="detractor" class="col-7 col-form-label texto">Detractores</label>
+							<div class="col-3">
+								<input type="number" name="detractor" class="form-control text-center" id="detractor">
+							</div>
+						</div> 
+
+						<!-- OBJETIVOS -->
+						<div class="row rm-4 d-flex justify-content-center">
+							<label for="objetivo" class="col-7 col-form-label texto">Objetivo</label>
+							<div class="col-3">
+								<input type="number" name="objetivo" class="form-control text-center" id="objetivo" value="80">
+							</div>
+						</div> 	
+					</div> <!-- FIN INGRESO DE DATOS -->
+					
+					<!-- BOTON -->
+					<div class="banner">
+						<div class="contenedor-banner">
+							<button type="submit" class="boton-frontal texto-banner" id="boton-frontal"><ion-icon name="arrow-round-forward" class="icono-banner icono-alterno"></ion-icon></button>
+						</div>
+					</div>
+				</form>
+
+				</div> <!-- FIN CARA FRONTAL -->
+
+				<!-- CARA TRASERA -->
+				<div class="cara-trasera" id="cara-trasera">
+					<div id="cara-trasera-contenedor">
+						
+					</div>
+
+					<!-- BOTON -->
+					<div class="banner">
+						<div class="contenedor-banner">
+							<button type="button" class="boton-frontal texto-banner" id="boton-atras"><ion-icon name="arrow-round-forward" class="icono-banner icono-alterno"></ion-icon></button>
+						</div>
+					</div>
+				</div> <!-- FIN CARA TRASERA -->
+
+			</div> <!-- FIN CONTENIDO DE LA TARJETA -->
+
+		</div>
+	</div>
+	</main>
+
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+	<script src="script.js"></script>
+	<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+</body>
+</html>
