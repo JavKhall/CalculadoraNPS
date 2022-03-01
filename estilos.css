@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@300;400;500&display=swap');
+
 :root {
 	--color-banner: #212f3d;
 	--letras-banner: #d0d3d4;
+
+	--font-nps: 'Lato';
+	--font-texto: 'Montserrat';
 }
 
 * {
@@ -14,7 +19,7 @@ body {
 	height: 100vh;
 	justify-content: center;
 	align-content: center;
-	background-color: #d4e6f1;
+	background-color: #626567;
 }
 
 .contenedor {
@@ -44,8 +49,6 @@ body {
 	justify-content: center;
 	transition: all 1s ease;
 	transform-style: preserve-3d;
-	/* transform: rotateY(180deg); */
-
 }
 
 .cara-frontal, .cara-trasera {
@@ -71,7 +74,6 @@ body {
 	justify-content: center;
 	align-items: center;
 	background-color: var(--color-banner);
-	
 }
 
 .contenedor-banner {
@@ -82,6 +84,8 @@ body {
 .texto-banner {
 	color: var(--letras-banner); 
 	margin: auto 10px;
+	font-family: var(--font-texto);
+	font-weight: 400;
 } 
 
 .icono-banner {
@@ -95,18 +99,38 @@ body {
 	height: 380px;
 	width: 90%;
 	margin: auto;
-	padding: 40px 10px;
+	padding: 40px 10px 3px;
+	font-family: var(--font-texto);
+	font-weight: 300;
+}
+
+.presentacion {
+	margin-top: 80px;
+}
+
+.mi-nombre {
+	font-size: 8px;
 }
 
 .boton-frontal {
 	height: 50px;
 	width: 300px;
 	background-color: var(--color-banner);
-	color:var(--letras-banner);
+	color: var(--letras-banner);
 	border: none;
 }
 
-/* CONFIGURACION PARTICULAR DEL ICONO DEL BOTON FRONTAL */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] { 
+	-moz-appearance:textfield; 
+}
+
+/* CONFIGURACION PARTICULAR DEL ICONO */
 .icono-alterno {
 	font-size: 35px;
 }
@@ -120,38 +144,40 @@ body {
 .valor-nps {
 	display: flex;
 	flex-direction: column;
-	/* border: solid 1px black; */
 	border-radius: 10px;
 	box-shadow: 2px 2px 4px rgba(0,0,0,.4);
 	height: 180px;
-	width: 200px;
+	width: 220px;
 	justify-content: center;
 	align-content: center;
-	/* background-color: var(--color-banner); */
 	color: var(--letras-banner);
+	
 }
 
 .nps-porcentaje {
 	margin: 5px auto;
 	font-size: 80px;
+	font-family: var(--font-nps);
 }
 
 .nps-cumplimiento {
 	font-size: 24px;
 	margin: 3px auto;
+	font-family: var(--font-texto);
+	font-weight: 500;
 }
 
 .margenes {
 	width: 260px;
-
 	margin-top: 25px;
 	text-align: center;
-	color: var(--letras-banner);
+	color: white;
 }
 
 .cantidad {
 	font-size: 25px;
 	text-shadow: 2px 2px 4px rgba(0,0,0,.4);
+	font-family: var(--font-texto);
 }
 
 /* CONFIGURACION DEL GIRO DE LA TARJETA, FALTARIA AGREGAR MODIFICACIONES CON EL COLOR */
