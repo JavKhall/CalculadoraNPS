@@ -32,13 +32,14 @@ body {
 	height: 90%;
 	justify-content: center;
 	align-items: center;
+	
 }
 
 .tarjeta {
 	display: flex;
 	width: 340px;
 	height: 500px;
-	perspective: 2000px;
+	perspective: 2000px;	
 }
 
 .contenido-tarjeta {
@@ -49,6 +50,7 @@ body {
 	justify-content: center;
 	transition: all 1.2s cubic-bezier(.52,-0.58,.37,1.64);
 	transform-style: preserve-3d;
+	
 }
 
 .cara-frontal, .cara-trasera {
@@ -143,6 +145,7 @@ input[type=number] {
 .cara-trasera {
 	transform: rotateY(180deg);
 	justify-content: center;
+	backface-visibility: hidden;
 }
 
 .valor-nps {
@@ -189,6 +192,10 @@ input[type=number] {
 	transition: all 1.2s cubic-bezier(.52,-0.58,.37,1.64);
 	transform-style: preserve-3d;
 	transform: rotateY(180deg);
+}
+
+.sombra {
+	box-shadow: 7px 7px 10px rgba(0,0,0,.5);
 }
 
 .en-objetivo {

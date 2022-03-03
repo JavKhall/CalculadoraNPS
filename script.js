@@ -42,16 +42,25 @@ const botonFrontal = document.getElementById('boton-frontal').addEventListener('
 			</div>
 		</div>
 		`
-
+		
+		
 		let centroTarjeta = document.getElementById("cara-trasera-contenedor");
 		centroTarjeta.innerHTML = salida
-
+		
 		let caraTrasera = document.getElementById("cara-trasera");
 		caraTrasera.classList.remove("fuera-de-objetivo");
 		caraTrasera.classList.add("en-objetivo")
-
+		
 		let tarjeta = document.getElementById('contenido-tarjeta');
 		tarjeta.classList.add('giro')
+		
+		setTimeout(() => {
+			let caraFrontal = document.getElementById('cara-frontal')
+		caraFrontal.classList.remove('sombra')
+		}, 500);
+		
+		
+
 	} else {
 		// FUERA DE OBJETIVO
 		let requerido = getPromotores(promotor, neutro, detractor, objetivo);
@@ -84,6 +93,11 @@ const botonFrontal = document.getElementById('boton-frontal').addEventListener('
 
 		let tarjeta = document.getElementById('contenido-tarjeta');
 		tarjeta.classList.add('giro')
+
+		setTimeout(() => {
+			let caraFrontal = document.getElementById('cara-frontal')
+		caraFrontal.classList.remove('sombra')
+		}, 500);
 	}
 	}
 
@@ -94,6 +108,11 @@ const botonFrontal = document.getElementById('boton-frontal').addEventListener('
 const botonTrasero = document.getElementById('boton-atras').addEventListener('click', (e)=> {
 	const tarjeta = document.getElementById('contenido-tarjeta')
 	tarjeta.classList.remove('giro')
+
+	setTimeout(() => {
+		let caraFrontal = document.getElementById('cara-frontal')
+		caraFrontal.classList.add('sombra')
+	}, 500);
 })
 
 function getNPS (promotor, neutro, detractor) {
