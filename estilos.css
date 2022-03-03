@@ -47,7 +47,7 @@ body {
 	height: 100%;
 	border-radius: 10px;
 	justify-content: center;
-	transition: all 1s ease;
+	transition: all 1.2s cubic-bezier(.52,-0.58,.37,1.64);
 	transform-style: preserve-3d;
 }
 
@@ -86,12 +86,19 @@ body {
 	margin: auto 10px;
 	font-family: var(--font-texto);
 	font-weight: 400;
+	font-size: 20px;
 } 
 
 .icono-banner {
 	color: var(--letras-banner);
 	margin: auto; 
 	font-size: 25px;
+}
+
+
+/* CONFIGURACION PARTICULAR DEL ICONO */
+.icono-alterno {
+	font-size: 40px;
 }
 
 /* CONFIGURACION FORMULARIO FRONTAL */
@@ -101,18 +108,20 @@ body {
 	margin: auto;
 	padding: 40px 10px 3px;
 	font-family: var(--font-texto);
+	font-size: 18px;
 	font-weight: 300;
 }
 
 .presentacion {
-	margin-top: 80px;
+	margin-top: 75px;
 }
 
 .mi-nombre {
-	font-size: 8px;
+	font-size: 11px;
 }
 
 .boton-frontal {
+	display: flex;
 	height: 50px;
 	width: 300px;
 	background-color: var(--color-banner);
@@ -128,11 +137,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 input[type=number] { 
 	-moz-appearance:textfield; 
-}
-
-/* CONFIGURACION PARTICULAR DEL ICONO */
-.icono-alterno {
-	font-size: 35px;
 }
 
 /* CONFIGURACION GENERAL DE LA CARA TRASERA */
@@ -182,7 +186,7 @@ input[type=number] {
 
 /* CONFIGURACION DEL GIRO DE LA TARJETA, FALTARIA AGREGAR MODIFICACIONES CON EL COLOR */
 .giro {
-	transition: all 1s ease;
+	transition: all 1.2s cubic-bezier(.52,-0.58,.37,1.64);
 	transform-style: preserve-3d;
 	transform: rotateY(180deg);
 }
