@@ -65,6 +65,16 @@ const botonFrontal = document.getElementById('boton-frontal').addEventListener('
 		// FUERA DE OBJETIVO
 		let requerido = getPromotores(promotor, neutro, detractor, objetivo);
 
+		let mensaje;
+
+		if (requerido<=5) {
+			mensaje = `Te fatal poco, <span>Suerte</span>`;
+		} else if (requerido<10) {
+			mensaje = `Metele garra...`
+		} else if (requerido>10) {
+			mensaje = `<span>F</span> en el tablero...`
+		}
+
 		let salida = ` 
 			<div class="banner">
 				<div class="contenedor-banner">
@@ -79,7 +89,8 @@ const botonFrontal = document.getElementById('boton-frontal').addEventListener('
 			</div>
 	
 			<div class="row margenes">
-				<p class="margen">Te faltan <span class="cantidad">${requerido}</span> promotor/es para quedar en objetivo. Suerte...</p>
+				<p class="margen">Te faltan <span>${requerido}</span> promotor/es para quedar en objetivo.</p>
+				<p class="margen mensaje">${mensaje}</p>
 			</div>
 		</div>
 		`

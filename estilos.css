@@ -158,7 +158,6 @@ input[type=number] {
 	justify-content: center;
 	align-content: center;
 	color: var(--letras-banner);
-	
 }
 
 .nps-porcentaje {
@@ -176,12 +175,19 @@ input[type=number] {
 
 .margenes {
 	width: 260px;
-	margin-top: 25px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	align-content: center;
 	text-align: center;
 	color: white;
 }
 
-.cantidad {
+.margen{
+	margin: 0px auto;
+	padding: 0px;
+}
+
+span {
 	font-size: 25px;
 	text-shadow: 2px 2px 4px rgba(0,0,0,.4);
 	font-family: var(--font-texto);
