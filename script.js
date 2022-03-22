@@ -68,7 +68,7 @@ const botonFrontal = document.getElementById('boton-frontal').addEventListener('
 		let mensaje;
 
 		if (requerido<=5) {
-			mensaje = `Te fatal poco, <span>Suerte</span>`;
+			mensaje = `Te falta poco, <span>Suerte</span>`;
 		} else if (requerido<10) {
 			mensaje = `Metele garra...`
 		} else if (requerido>10) {
