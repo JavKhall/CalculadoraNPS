@@ -48,6 +48,7 @@ const botonFrontal = document.getElementById('boton-frontal').addEventListener('
 			
 			let caraTrasera = document.getElementById("cara-trasera");
 			caraTrasera.classList.remove("fuera-de-objetivo");
+			caraTrasera.classList.remove("falta-poco");
 			caraTrasera.classList.add("en-objetivo")
 			
 			let tarjeta = document.getElementById('contenido-tarjeta');
@@ -108,8 +109,16 @@ const botonFrontal = document.getElementById('boton-frontal').addEventListener('
 			centroTarjeta.innerHTML = salida
 
 			let caraTrasera = document.getElementById("cara-trasera");
-			caraTrasera.classList.remove("en-objetivo");
-			caraTrasera.classList.add("fuera-de-objetivo");
+			
+			if (cumplimiento == "A MEJORAR"){
+				caraTrasera.classList.remove("en-objetivo");
+				caraTrasera.classList.remove("fuera-de-objetivo");
+				caraTrasera.classList.add("falta-poco");
+			} else {
+				caraTrasera.classList.remove("en-objetivo");
+				caraTrasera.classList.remove("falta-poco");
+				caraTrasera.classList.add("fuera-de-objetivo");
+			}
 
 			let tarjeta = document.getElementById('contenido-tarjeta');
 			tarjeta.classList.add('giro')

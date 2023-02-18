@@ -224,13 +224,16 @@ span {
 }
 
 .en-objetivo {
-	background: rgb(40, 70, 39);
 	background: linear-gradient(220deg, rgb(40, 70, 39, 1) 0%, rgb(115, 247, 98, 1) 100%);
 }
 
 .fuera-de-objetivo {
-	background: rgb(70, 39, 39);
 	background: linear-gradient(220deg, rgb(70, 39, 39, 1) 0%, rgb(247, 98, 98, 1) 100%);
+
+}
+
+.falta-poco {
+	background: linear-gradient(220deg, rgb(67, 70, 39) 0%, rgb(237, 247, 98) 100%);
 }
 
 /* CONFIGURACION MUSTREO DE FALTANTE */
