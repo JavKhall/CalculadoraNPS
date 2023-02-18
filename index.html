@@ -34,57 +34,59 @@
 					
 					<!-- DATOS -->
 					<form>
-					<div class="centro-tarjeta">
-						<!-- PROMOTORES -->
-						<div class="row mb-4 mt-2 d-flex justify-content-center">
-							<label for="promotor" class="col-7 col-form-label texto">Promotores</label>
-							<div class="col-3">
-								<input type="number" name="promotor" class="form-control text-center" id="promotor">
+						<div class="centro-tarjeta">
+							<!-- PROMOTORES -->
+							<div class="row mb-4 mt-2 d-flex justify-content-center">
+								<label for="promotor" class="col-7 col-form-label texto">Promotores</label>
+								<div class="col-3">
+									<input type="number" name="promotor" class="form-control text-center" id="promotor">
+								</div>
+							</div>
+
+							<!-- NEUTROS -->
+							<div class="row mb-4 d-flex justify-content-center">
+								<label for="neutro" class="col-7 col-form-label texto">Neutros</label>
+								<div class="col-3">
+									<input type="number" name="neutro" class="form-control text-center" id="neutro">
+								</div>
+							</div> 
+
+							<!-- DETRACTORES -->
+							<div class="row mb-4 d-flex justify-content-center">
+								<label for="detractor" class="col-7 col-form-label texto">Detractores</label>
+								<div class="col-3">
+									<input type="number" name="detractor" class="form-control text-center" id="detractor">
+								</div>
+							</div> 
+
+							<!-- OBJETIVOS -->
+							<div class="row rm-4 d-flex justify-content-center">
+								<label for="objetivo" class="col-7 col-form-label texto">Objetivo</label>
+								<div class="col-3">
+									<input type="number" name="objetivo" class="form-control text-center" id="objetivo" value="80">
+								</div>
+							</div>
+
+							<div class="presentacion">
+								<p class="text-center mi-nombre">Desarrollado por Javier Lencina</p>
+							</div>
+						</div> <!-- FIN INGRESO DE DATOS -->
+						<!-- BOTON -->
+						<div class="banner">
+							<div class="contenedor-banner">
+								<button type="submit" class="boton-frontal texto-banner" id="boton-frontal"><ion-icon name="return-right" class="icono-banner icono-alterno"></ion-icon></button>
 							</div>
 						</div>
-
-						<!-- NEUTROS -->
-						<div class="row mb-4 d-flex justify-content-center">
-							<label for="neutro" class="col-7 col-form-label texto">Neutros</label>
-							<div class="col-3">
-								<input type="number" name="neutro" class="form-control text-center" id="neutro">
-							</div>
-						</div> 
-
-						<!-- DETRACTORES -->
-						<div class="row mb-4 d-flex justify-content-center">
-							<label for="detractor" class="col-7 col-form-label texto">Detractores</label>
-							<div class="col-3">
-								<input type="number" name="detractor" class="form-control text-center" id="detractor">
-							</div>
-						</div> 
-
-						<!-- OBJETIVOS -->
-						<div class="row rm-4 d-flex justify-content-center">
-							<label for="objetivo" class="col-7 col-form-label texto">Objetivo</label>
-							<div class="col-3">
-								<input type="number" name="objetivo" class="form-control text-center" id="objetivo" value="80">
-							</div>
-						</div>
-
-						<div class="presentacion">
-							<p class="text-center mi-nombre">Desarrollado por Javier Lencina</p>
-						</div>
-					</div> <!-- FIN INGRESO DE DATOS -->
-					<!-- BOTON -->
-					<div class="banner">
-						<div class="contenedor-banner">
-							<button type="submit" class="boton-frontal texto-banner" id="boton-frontal"><ion-icon name="return-right" class="icono-banner icono-alterno"></ion-icon></button>
-						</div>
-					</div>
-				</form>
-
-			
+					</form>
 				</div> <!-- FIN CARA FRONTAL -->
 
 				<!-- CARA TRASERA -->
 				<div class="cara-trasera sombra" id="cara-trasera">
 					<div id="cara-trasera-contenedor">
+						
+					</div>
+
+					<div class="avaricia no-mostrar" id="avaricia">
 						
 					</div>
 
@@ -95,12 +97,10 @@
 						</div>
 					</div>
 				</div> <!-- FIN CARA TRASERA -->
-
-			</div> <!-- FIN CONTENIDO DE LA TARJETA -->
-
-		</div>
-	</div>
-
+			</div> <!-- FIN CONTENIDO DE LA TARJETA -->	
+		</div> <!-- FIN TARJETA -->
+		
+	</div><!-- FIN CONTENEDOR GENERAL -->
 	</main>
 
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

@@ -1,8 +1,9 @@
-const botonFrontal = document.getElementById('boton-frontal').addEventListener('click', (e)=> {
+const botonFrontal = document.getElementById('boton-frontal').addEventListener('click', (e) => {
 	e.preventDefault();
 
 	let promotor, neutro, detractor;
 	let objetivo = parseInt(document.getElementById('objetivo').value);
+	let avaricia = document.getElementById('avaricia');
 
 	if ((document.getElementById('promotor').value) === "") { promotor = 0;	} 
 	else { promotor = parseInt(document.getElementById('promotor').value) }
@@ -14,111 +15,117 @@ const botonFrontal = document.getElementById('boton-frontal').addEventListener('
 	else { detractor = parseInt(document.getElementById('detractor').value) }
 
 	if ((promotor+neutro+detractor)==0) {
-		alert("No ingresaste ningun numero")
+		alert("No ingresaste ningun valor")
 	} else {
 		let nps = getNPS(promotor, neutro, detractor);
-	let cumplimiento = getCumplimiento(nps, objetivo);
+		let cumplimiento = getCumplimiento(nps, objetivo);
 
-	if (nps >= 80) {
-		// EN OBJETIVO
-		let margenNeutro = getMargenNeutro(promotor, neutro, detractor, objetivo)
-		let margenDetractor = getMargenDetractor(promotor, neutro, detractor, objetivo)
+		if (nps >= 80) {
+			// EN OBJETIVO
+			let margenNeutro = getMargenNeutro(promotor, neutro, detractor, objetivo)
+			let margenDetractor = getMargenDetractor(promotor, neutro, detractor, objetivo)
 
-		let salida = ` 
-			<div class="banner">
-				<div class="contenedor-banner">
-					<ion-icon name="checkmark-circle-outline" class="icono-banner icono-alterno"></ion-icon>
+			let salida = ` 
+				<div class="banner">
+					<div class="contenedor-banner">
+						<ion-icon name="checkmark-circle-outline" class="icono-banner icono-alterno"></ion-icon>
+					</div>
+				</div>
+
+				<div class="row justify-content-center centro-tarjeta">
+					<div class="valor-nps">
+						<p class="nps-porcentaje">${nps}%</p>
+						<p class="nps-cumplimiento">${cumplimiento}</p>
+					</div>
+					<div class="row margenes">
+						<p class="margen">Tienes un margen de <span class="cantidad">${margenNeutro}</span> neutro/s o de <span class="cantidad">${margenDetractor}</span> detractor/es</p>
+					</div>
+				</div>
+			`
+			
+			let centroTarjeta = document.getElementById("cara-trasera-contenedor");
+			centroTarjeta.innerHTML = salida
+			
+			let caraTrasera = document.getElementById("cara-trasera");
+			caraTrasera.classList.remove("fuera-de-objetivo");
+			caraTrasera.classList.add("en-objetivo")
+			
+			let tarjeta = document.getElementById('contenido-tarjeta');
+			tarjeta.classList.add('giro')
+			
+			// TRUCO PARA LA SOMBRA
+			setTimeout(() => {
+				let caraFrontal = document.getElementById('cara-frontal')
+				caraFrontal.classList.remove('sombra')
+			}, 500);
+			
+			// TIEMPO DE MUESTREO DE FALTANTES PARA SOBRESALIENTE
+			if (cumplimiento == "DESTACADO") {
+				let codicia = getCodicia (promotor, neutro, detractor, objetivo)
+				let contenido = `<p class="texto-avaro"><span>+${codicia}</span> para Sobresaliente</p>`
+				avaricia.innerHTML = contenido
+				
+				setTimeout(() => {
+					avaricia.classList.replace('no-mostrar', 'aparecer')
+				}, 900);
+			}
+
+		} else {
+			// FUERA DE OBJETIVO
+			let requerido = getPromotores(promotor, neutro, detractor);
+
+			let mensaje;
+
+			if (requerido<=5) {
+				mensaje = `Te falta poco, <span>Suerte</span>`;
+			} else if (requerido<10) {
+				mensaje = `Metele garra...`
+			} else if (requerido>10) {
+				mensaje = `<span>F</span> en el tablero...`
+			}
+
+			let salida = ` 
+				<div class="banner">
+					<div class="contenedor-banner">
+						<ion-icon name="close-circle-outline" class="icono-banner icono-alterno"></ion-icon>
+					</div>
+				</div>
+
+				<div class="row justify-content-center centro-tarjeta">
+					<div class="valor-nps">
+						<p class="nps-porcentaje">${nps}%</p>
+						<p class="nps-cumplimiento">${cumplimiento}</p>
+				</div>
+		
+				<div class="row margenes">
+					<p class="margen">Te faltan <span>${requerido}</span> promotor/es para quedar en objetivo.</p>
+					<p class="margen mensaje">${mensaje}</p>
 				</div>
 			</div>
+			`
 
-			<div class="row justify-content-center centro-tarjeta">
-				<div class="valor-nps">
-					<p class="nps-porcentaje">${nps}%</p>
-					<p class="nps-cumplimiento">${cumplimiento}</p>
-			</div>
-	
-			<div class="row margenes">
-				<p class="margen">Tienes un margen de <span class="cantidad">${margenNeutro}</span> neutro/s o de <span class="cantidad">${margenDetractor}</span> detractor/es</p>
-			</div>
-		</div>
-		`
-		
-		
-		let centroTarjeta = document.getElementById("cara-trasera-contenedor");
-		centroTarjeta.innerHTML = salida
-		
-		let caraTrasera = document.getElementById("cara-trasera");
-		caraTrasera.classList.remove("fuera-de-objetivo");
-		caraTrasera.classList.add("en-objetivo")
-		
-		let tarjeta = document.getElementById('contenido-tarjeta');
-		tarjeta.classList.add('giro')
-		
-		setTimeout(() => {
-			let caraFrontal = document.getElementById('cara-frontal')
-		caraFrontal.classList.remove('sombra')
-		}, 500);
-		
-		
+			let centroTarjeta = document.getElementById("cara-trasera-contenedor");
+			centroTarjeta.innerHTML = salida
 
-	} else {
-		// FUERA DE OBJETIVO
-		let requerido = getPromotores(promotor, neutro, detractor, objetivo);
+			let caraTrasera = document.getElementById("cara-trasera");
+			caraTrasera.classList.remove("en-objetivo");
+			caraTrasera.classList.add("fuera-de-objetivo");
 
-		let mensaje;
+			let tarjeta = document.getElementById('contenido-tarjeta');
+			tarjeta.classList.add('giro')
 
-		if (requerido<=5) {
-			mensaje = `Te falta poco, <span>Suerte</span>`;
-		} else if (requerido<10) {
-			mensaje = `Metele garra...`
-		} else if (requerido>10) {
-			mensaje = `<span>F</span> en el tablero...`
+			setTimeout(() => {
+				let caraFrontal = document.getElementById('cara-frontal')
+				caraFrontal.classList.remove('sombra')
+			}, 500);
 		}
-
-		let salida = ` 
-			<div class="banner">
-				<div class="contenedor-banner">
-					<ion-icon name="close-circle-outline" class="icono-banner icono-alterno"></ion-icon>
-				</div>
-			</div>
-
-			<div class="row justify-content-center centro-tarjeta">
-				<div class="valor-nps">
-					<p class="nps-porcentaje">${nps}%</p>
-					<p class="nps-cumplimiento">${cumplimiento}</p>
-			</div>
-	
-			<div class="row margenes">
-				<p class="margen">Te faltan <span>${requerido}</span> promotor/es para quedar en objetivo.</p>
-				<p class="margen mensaje">${mensaje}</p>
-			</div>
-		</div>
-		`
-
-		let centroTarjeta = document.getElementById("cara-trasera-contenedor");
-		centroTarjeta.innerHTML = salida
-
-		let caraTrasera = document.getElementById("cara-trasera");
-		caraTrasera.classList.remove("en-objetivo");
-		caraTrasera.classList.add("fuera-de-objetivo");
-
-		let tarjeta = document.getElementById('contenido-tarjeta');
-		tarjeta.classList.add('giro')
-
-		setTimeout(() => {
-			let caraFrontal = document.getElementById('cara-frontal')
-		caraFrontal.classList.remove('sombra')
-		}, 500);
-	}
-	}
-
-
-	
+	}	
 });
 
 const botonTrasero = document.getElementById('boton-atras').addEventListener('click', (e)=> {
 	const tarjeta = document.getElementById('contenido-tarjeta')
 	tarjeta.classList.remove('giro')
+	avaricia.classList.replace('aparecer', 'no-mostrar' )
 
 	setTimeout(() => {
 		let caraFrontal = document.getElementById('cara-frontal')
@@ -126,6 +133,8 @@ const botonTrasero = document.getElementById('boton-atras').addEventListener('cl
 	}, 500);
 })
 
+
+//* ESPACIO DEL CALCULOS REALIZADOS 
 function getNPS (promotor, neutro, detractor) {
 	return (Math.trunc(((promotor-detractor)/(promotor+neutro+detractor)*100)))
 }
@@ -152,7 +161,7 @@ function getMargenNeutro (promotor, neutro, detractor, objetivo) {
 		nuevoNeutro++
 		nps = getNPS (promotor, nuevoNeutro, detractor)
 	}
-	while (nps >= objetivo)
+	while (nps > objetivo)
 
 	return (nuevoNeutro-1-neutro)
 }
@@ -165,19 +174,35 @@ function getMargenDetractor(promotor, neutro, detractor, objetivo) {
 		nuevoDetractor++
 		nps = getNPS (promotor, neutro, nuevoDetractor)
 	}
-	while (nps >= objetivo)
+	while (nps > objetivo)
 
 	return (nuevoDetractor-1-detractor)
 }
 
-function getPromotores (promotor, neutro, detractor, objetivo) {
+// FALTANTE PARA OBJETIVO
+function getPromotores (promotor, neutro, detractor) {
 	let nuevoPromotor = promotor;
 
 	do{
 		nuevoPromotor++
 		nps = getNPS (nuevoPromotor, neutro, detractor)
 	}
-	while (nps <= 80)
+	while (nps < 80)
 
-	return (nuevoPromotor-1-promotor)
+	return (nuevoPromotor-promotor)
+}
+
+// CALCULAR CODICIA
+function getCodicia (promotor, neutro, detractor, objetivo) {
+	let nuevoPromotor = promotor
+  let cumplimiento
+
+	do{
+		nuevoPromotor++
+		nps = getNPS (nuevoPromotor, neutro, detractor)
+		cumplimiento = (nps*100)/objetivo
+	}
+	while (cumplimiento < 115)
+
+	return (nuevoPromotor-promotor)
 }

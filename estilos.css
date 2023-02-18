@@ -8,13 +8,13 @@
 	--font-texto: 'Montserrat';
 }
 
-* {
+* { /* CONFIGURACION GRAL */
 	margin: 0px;
 	padding: 0px;
 	box-sizing: border-box;
 }
 
-body {
+body { /* CONFIGURACION BODY */
 	width: 100%;
 	height: 100vh;
 	justify-content: center;
@@ -67,9 +67,10 @@ body {
 	color:white;
 	background: rgb(40,39,70);
 	background: linear-gradient(220deg, rgba(40,39,70,1) 0%, rgba(98,118,247,1) 100%);
+	
 }
 
-/* CONFIGURACION DE LOS BANNER DE LAS TARJETAS */
+/* CONFIGURACION DE LOS BANNERS DE LAS TARJETAS */
 .banner {
 	display: flex;
 	height: 60px;
@@ -96,7 +97,6 @@ body {
 	margin: auto; 
 	font-size: 25px;
 }
-
 
 /* CONFIGURACION PARTICULAR DEL ICONO */
 .icono-alterno {
@@ -173,6 +173,25 @@ input[type=number] {
 	font-weight: 500;
 }
 
+.avaricia {
+	position: absolute;
+	margin: auto;
+	bottom: 120px;
+	left: 150px;
+	transition: all 0.5s ease-in-out;
+	color: white;
+	font-family: var(--font-texto);
+}
+
+.texto-avaro {
+	font-size: 15px;
+}
+
+.texto-avaro span {
+	font-size: 18px;
+	text-shadow: 2px 2px 4px rgba(0,0,0,.4);
+}
+
 .margenes {
 	width: 260px;
 	margin-top: 15px;
@@ -193,7 +212,7 @@ span {
 	font-family: var(--font-texto);
 }
 
-/* CONFIGURACION DEL GIRO DE LA TARJETA, FALTARIA AGREGAR MODIFICACIONES CON EL COLOR */
+/* CONFIGURACION DEL GIRO DE LA TARJETA */
 .giro {
 	transition: all 1.2s cubic-bezier(.52,-0.58,.37,1.64);
 	transform-style: preserve-3d;
@@ -212,4 +231,15 @@ span {
 .fuera-de-objetivo {
 	background: rgb(70, 39, 39);
 	background: linear-gradient(220deg, rgb(70, 39, 39, 1) 0%, rgb(247, 98, 98, 1) 100%);
+}
+
+/* CONFIGURACION MUSTREO DE FALTANTE */
+.no-mostrar {
+	opacity: 0;
+}
+
+.aparecer {
+	bottom: 165px;
+	opacity: 1;
+	transition: all 600ms cubic-bezier(.08,.79,.58,1.44);
 }
