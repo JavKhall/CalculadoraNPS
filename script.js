@@ -20,7 +20,7 @@ const botonFrontal = document.getElementById('boton-frontal').addEventListener('
 		let nps = getNPS(promotor, neutro, detractor);
 		let cumplimiento = getCumplimiento(nps, objetivo);
 
-		if (nps >= 80) {
+		if (nps >= objetivo) {
 			// EN OBJETIVO
 			let margenNeutro = getMargenNeutro(promotor, neutro, detractor, objetivo)
 			let margenDetractor = getMargenDetractor(promotor, neutro, detractor, objetivo)
@@ -73,7 +73,7 @@ const botonFrontal = document.getElementById('boton-frontal').addEventListener('
 
 		} else {
 			// FUERA DE OBJETIVO
-			let requerido = getPromotores(promotor, neutro, detractor);
+			let requerido = getPromotores(promotor, neutro, detractor, objetivo);
 
 			let mensaje;
 
@@ -189,14 +189,14 @@ function getMargenDetractor(promotor, neutro, detractor, objetivo) {
 }
 
 // FALTANTE PARA OBJETIVO
-function getPromotores (promotor, neutro, detractor) {
+function getPromotores (promotor, neutro, detractor, objetivo) {
 	let nuevoPromotor = promotor;
 
 	do{
 		nuevoPromotor++
 		nps = getNPS (nuevoPromotor, neutro, detractor)
 	}
-	while (nps < 80)
+	while (nps < objetivo)
 
 	return (nuevoPromotor-promotor)
 }
